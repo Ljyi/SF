@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="UserRightsService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

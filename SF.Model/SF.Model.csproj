@@ -44,11 +44,14 @@
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
     <Compile Include="DataModelDto\BaseDto.cs" />
+    <Compile Include="DataModelDto\RoleDto.cs" />
+    <Compile Include="DataModelDto\SysMenuDto.cs" />
     <Compile Include="DataModelDto\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SysMenu.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserRights.cs" />
     <Compile Include="UserRole.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

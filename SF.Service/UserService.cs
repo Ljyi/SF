@@ -25,6 +25,10 @@ namespace SF.Service
             User user = userRepository.Find(id);
             return Mapper.Map<User, UserDto>(user);
         }
+        public User GetUser(int id)
+        {
+            return userRepository.Find(id);
+        }
         /// <summary>
         /// 获取用户列表
         /// </summary>
