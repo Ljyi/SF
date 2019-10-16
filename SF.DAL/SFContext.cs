@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SF.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -21,14 +22,25 @@ namespace SF.DAL
         /// </summary>
         /// <param name="nameOrConnectionString"></param>
         /// <param name="dbtype"></param>
-        public SFContext(string nameOrConnectionString, string dbtype) : base(dbtype == DBType.Read ? "name=VendMContextRead" : "name=VendMContext")
+        public SFContext(string nameOrConnectionString, string dbtype) : base(dbtype == DBType.Read ? "name=SFContextRead" : "name=SFContext")
         {
 
         }
         public SFContext(string nameOrConnectionString) : base(nameOrConnectionString) { }
+        public DbSet<User> User { get; set; }
+        public DbSet<SysMenu> SysMenu { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<UserRole> UserRole { get; set; }
+        public DbSet<UserRights> UserRights { get; set; }
+        public DbSet<Order> Order { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-          
+            modelBuilder.Entity<User>();
+            modelBuilder.Entity<SysMenu>();
+            modelBuilder.Entity<Role>();
+            modelBuilder.Entity<UserRole>();
+            modelBuilder.Entity<UserRights>();
+            modelBuilder.Entity<Order>();
         }
     }
 }

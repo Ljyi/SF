@@ -7,7 +7,7 @@ namespace SF.Model
     /// 用户角色
     /// </summary>
     [Table("UserRole")]
-    public class UserRole
+    public class UserRole : BaseModel
     {
         /// <summary>
         /// 角色Id
