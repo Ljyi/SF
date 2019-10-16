@@ -19,6 +19,8 @@ namespace SF.Web.ModelAutoMapper
                 .ForMember(opt => opt.Status, ptd => ptd.MapFrom(src => src.Status));
             CreateMap<SysMenu, SysMenuDto>();
             CreateMap<SysMenuDto, SysMenu>();
+            CreateMap<Order, OrderDto>();
+            CreateMap<OrderDto, Order>();
         }
     }
 }

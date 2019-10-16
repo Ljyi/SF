@@ -145,6 +145,7 @@
     <Compile Include="BaseApplication\ServiceController.cs" />
     <Compile Include="Controllers\AplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1409,6 +1410,7 @@
     <Content Include="Scripts\zTree\css\awesomeStyle\fa.less" />
     <Content Include="Scripts\zTree\zTree.v3.jquery.json" />
     <Content Include="Views\Aplication\Login.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,6 +3,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using SF.WebAPI.Areas.HelpPage.ModelDescriptions;
 using SF.WebAPI.Areas.HelpPage.Models;
+using SF.WebAPI.Areas.HelpPage;
 
 namespace SF.WebAPI.Areas.HelpPage.Controllers
 {
