@@ -39,7 +39,7 @@ namespace SF.Model.DataModelDto
         /// 创建时间
         /// </summary>
         [Required]
-        public DateTime CreateTime { get; set; }
+        public DateTime CredateTime { get; set; }
         /// <summary>
         /// 地址
         /// </summary>

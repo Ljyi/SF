@@ -94,15 +94,17 @@
                     </li>
                     @foreach (var item in (IEnumerable<SF.Model.MenuTree>)ViewBag.MenuList)
                     {
-                        <li>
-                            <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="@item.Icon"></i>&nbsp;&nbsp;<span>@item.MenuName</span></a>
-                            <ul aria-expanded="true" class="collapse in" style="">
-                                @foreach (var itemc in item.menuTrees)
-                                {
-                                    <li><a href="javascript:void(0);var url='@itemc.Url';" hzy-router-href="@itemc.Url" hzy-router-text="@itemc.MenuName"><i class=""></i>&nbsp;&nbsp;<span>@itemc.MenuName</span></a></li>
-                                }
-                            </ul>
-                        </li>
+                    @*<li>
+                        <a class="has-arrow has-first-menu" href="javascript:void(0)" aria-expanded="true"><i class="@item.Icon"></i>&nbsp;&nbsp;<span>@item.MenuName</span></a>
+                    </li>*@
+                        <li><a href="javascript:void(0);var url='@item.Url';" hzy-router-href="@item.Url" hzy-router-text="@item.MenuName"><i class=""></i>&nbsp;&nbsp;<span>@item.MenuName</span></a></li>
+                        @*<ul aria-expanded="true" class="collapse in" style="">
+                @foreach (var itemc in item.menuTrees)
+                {
+                    <li><a href="javascript:void(0);var url='@itemc.Url';" hzy-router-href="@itemc.Url" hzy-router-text="@itemc.MenuName"><i class=""></i>&nbsp;&nbsp;<span>@itemc.MenuName</span></a></li>
+                }
+            </ul>*@
+                      
                     }
                 </ul>
             </div>

@@ -1,6 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "VerticalBrush";
+    Layout = "~/Views/Shared/_Form.cshtml";
 }
 <div class="page animation-fade">
     <div class="page-content">
@@ -29,9 +30,6 @@
                     </button>
                     <button type="button" class="btn btn-primary" data-power="Search" name="search" id="search">
                         <i class="fa fa-search"></i>&nbsp;查询
-                    </button>
-                    <button type="button" class="btn btn-primary" data-power="Browse" name="browse" id="browse">
-                        <i class="fa fa-pencil"></i>&nbsp;浏览
                     </button>
                     <button type="button" class="btn btn-primary" data-power="Delete" name="delete" id="delete">
                         <i class="fa fa-trash"></i>&nbsp;删除
@@ -214,16 +212,6 @@
 </script>
 
 <script>
-    var BrowseOrder = function (id) {
-        layer.open({
-            type: 2,
-            title: '浏览订单',
-            shadeClose: true,
-            shade: 0.8,
-            area: ['25%', '65%'],
-            content: 'OrderDetail?orderId=' + id
-        })
-    }
     //删除
     var Delete = function (ids) {
         layer.confirm('您确定要删除吗？', {
@@ -295,4 +283,5 @@
         })
     }
 </script>
+
 

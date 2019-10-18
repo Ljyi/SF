@@ -1411,6 +1411,12 @@
     <Content Include="Scripts\zTree\zTree.v3.jquery.json" />
     <Content Include="Views\Aplication\Login.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\VerticalBrush.cshtml" />
+    <Content Include="Views\Order\TripodBrush.cshtml" />
+    <Content Include="Views\Order\Koala.cshtml" />
+    <Content Include="Views\Order\UnitedEffort.cshtml" />
+    <Content Include="Views\Order\ShengTong.cshtml" />
+    <Content Include="Views\Order\POS.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
