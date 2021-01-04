@@ -36,6 +36,11 @@ namespace SF.Model.EnumModel
         /// Pos
         /// </summary>
         [Description("POS")]
-        POS = 6
+        POS = 6,
+        /// <summary>
+        /// Pos
+        /// </summary>
+        [Description("FLM")]
+        FLM = 7
     }
 }

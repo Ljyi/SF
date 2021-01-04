@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SF.Service
 {
@@ -23,7 +21,7 @@ namespace SF.Service
             {
                 if (string.IsNullOrEmpty(gp.SortName))
                 {
-                    entitys = entitys.OrderBy("Id");
+                    entitys = entitys.OrderBy("Id desc");
                 }
                 else
                 {

@@ -201,7 +201,7 @@
                 sort: params.sort,      //排序列名
                 sortOrder: params.order, //排位命令（desc，asc）
                 orderNo: $("#OrderNo").val(), //订单编号
-                channelId: 1,
+                channelId:  @ViewBag.channelId,
                 dateFrom: $("#dateFrom").val(),//开始时间
                 dateTo: $("#dateTo").val()//结束时间
             };

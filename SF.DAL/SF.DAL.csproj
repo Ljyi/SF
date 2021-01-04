@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201910160323430_ModifyOrder.Designer.cs">
       <DependentUpon>201910160323430_ModifyOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912031344093_modifOrderStatu.cs" />
+    <Compile Include="Migrations\201912031344093_modifOrderStatu.Designer.cs">
+      <DependentUpon>201912031344093_modifOrderStatu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SFContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910160323430_ModifyOrder.resx">
       <DependentUpon>201910160323430_ModifyOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912031344093_modifOrderStatu.resx">
+      <DependentUpon>201912031344093_modifOrderStatu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

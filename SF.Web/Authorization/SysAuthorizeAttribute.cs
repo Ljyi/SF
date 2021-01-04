@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,6 +14,7 @@ namespace SF.Web.Authorization
             {
                 List<string> value = new List<string>();
                 value.Add(URL_Login.ToLower());
+                //value.Add("/");
                 return value;
             }
         }
@@ -38,13 +37,16 @@ namespace SF.Web.Authorization
                 Principal principal = new Principal(HttpContext.Current.User.Identity.Name);
                 HttpContext.Current.User = principal;
                 //权限判断
-                if (!ServiceHelper.AllowedAccess(url))
+                if (url != "/")
                 {
-                    if (filterContext.HttpContext.Request.Url.Host != "localhost")
+                    if (!ServiceHelper.AllowedAccess(url))
                     {
+                        //if (filterContext.HttpContext.Request.Url.Host != "localhost")
+                        //{
                         //后期做权限验证
                         string message = string.Format("您没有此操作权限！");
                         filterContext.HttpContext.Response.Redirect(string.Format("~/Shared/Error?message={0}", message));
+                        //}
                     }
                 }
             }

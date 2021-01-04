@@ -1,4 +1,5 @@
-﻿using SF.Service;
+﻿using SF.Model;
+using SF.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,11 +47,11 @@ namespace SF.Web.Authorization
             UserIdentity user = GetCurrentUser();
             ////查找用户权限
             if (user.IsAdmin) return true;
-            //UserRightsService rightsSvc = new UserRightsService();
-            //List<UserRights> rightList = rightsSvc.GetListByUrl(url);
-            //if (rightList == null || rightList.Count == 0) return false; //如果找不到的url，则可以访问
-            //user.Authorizes = rightList.Select(p => p.SysMenuAction.SysButton.ButtonCode).ToList();
-            return false;
+            UserRightsService rightsSvc = new UserRightsService();
+            List<UserRights> rightList = rightsSvc.GetListByUrl(url).Where(p=>p.UserId== user.UserID).ToList();
+            if (rightList == null || rightList.Count == 0) return false; //如果找不到的url，则可以访问
+           // user.Authorizes = rightList.Select(p => p..SysButton.ButtonCode).ToList();
+            return true;
         }
     }
 }

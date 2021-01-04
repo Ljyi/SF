@@ -30,6 +30,10 @@ namespace SF.Model.DataModelDto
         [Required]
         public int Channel { get; set; }
         /// <summary>
+        /// 状态
+        /// </summary>
+        public string Status { get; set; }
+        /// <summary>
         /// 用户名
         /// </summary>
         [MaxLength(20)]
@@ -56,14 +60,16 @@ namespace SF.Model.DataModelDto
     /// </summary>
     public class OrderApiDto
     {
+        ///// 1：立刷
+        ///// 2：鼎刷
+        ///// 3：考拉
+        ///// 4：通联
+        ///// 5：银盛通
+        ///// 6：POS
+
         /// <summary>
         /// 渠道号
-        /// 1：立刷
-        /// 2：鼎刷
-        /// 3：考拉
-        /// 4：通联
-        /// 5：银盛通
-        /// 6：POS
+        /// 7：付临门
         /// </summary>
         [Required]
         public int Channel { get; set; }

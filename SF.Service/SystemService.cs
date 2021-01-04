@@ -1,13 +1,10 @@
 ﻿using SF.Core;
 using SF.DAL.UnitOfWork;
 using SF.Model;
-using SF.Model.DataModelDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SF.Service
 {
@@ -29,6 +26,7 @@ namespace SF.Service
         {
             Expression<Func<SysMenu, bool>> ex = t => true;
             ex = ex.And(t => !t.IsDelete);
+            ex = ex.And(t => t.ParentId == 0);
             List<SysMenu> sysMenus = sysMenuRepository.GetEntities(ex).ToList();
             List<UserRights> userRights = userRightsService.GetUserRights(userId);
             if (!isAdmin)

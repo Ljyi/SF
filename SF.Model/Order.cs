@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SF.Model
@@ -25,6 +24,10 @@ namespace SF.Model
         [Required]
         public int Channel { get; set; }
         /// <summary>
+        /// 状态
+        /// </summary>
+        public int Status { get; set; }
+        /// <summary>
         /// 用户名
         /// </summary>
         [MaxLength(20)]
@@ -40,5 +43,9 @@ namespace SF.Model
         /// </summary>
         [MaxLength(20)]
         public string Remark { get; set; }
+        /// <summary>
+        /// 系统用户Id
+        /// </summary>
+      //  public int UserId { get; set; }
     }
 }

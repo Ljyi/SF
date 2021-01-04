@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
+using SF.Core;
 using SF.Model;
 using SF.Model.DataModelDto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using SF.Model.EnumModel;
 
 namespace SF.Web.ModelAutoMapper
 {
@@ -19,8 +17,8 @@ namespace SF.Web.ModelAutoMapper
                 .ForMember(opt => opt.Status, ptd => ptd.MapFrom(src => src.Status));
             CreateMap<SysMenu, SysMenuDto>();
             CreateMap<SysMenuDto, SysMenu>();
-            CreateMap<Order, OrderDto>();
-            CreateMap<OrderDto, Order>();
+            CreateMap<Order, OrderDto>().ForMember(opt => opt.Status, ptd => ptd.MapFrom(src => EnumExtension.GetDescription(typeof(OrderStatusEnum), src.Status)));
+            CreateMap<OrderDto, Order>();//.ForMember(opt => opt.Status, ptd => ptd.MapFrom(src => src.Status))
         }
     }
 }

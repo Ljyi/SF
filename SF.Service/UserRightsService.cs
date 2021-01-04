@@ -19,7 +19,7 @@ namespace SF.Service
         }
         public List<UserRights> GetUserRights(int userId)
         {
-            return userRightsRepository.Entities.ToList();
+            return userRightsRepository.Entities.Where(zw => zw.UserId == userId).ToList();
         }
         /// <summary>
         /// 获取用户请求Url
