@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
     <Compile Include="DataModelDto\BaseDto.cs" />
+    <Compile Include="DataModelDto\ExcelTableDto.cs" />
     <Compile Include="DataModelDto\ImportModelDto.cs" />
     <Compile Include="DataModelDto\MenuTree.cs" />
     <Compile Include="DataModelDto\OrderDto.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="DataModelDto\UserDto.cs" />
     <Compile Include="EnumModel\ChannelEnum.cs" />
     <Compile Include="EnumModel\OrderStatusEnum.cs" />
+    <Compile Include="ExcelData.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />

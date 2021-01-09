@@ -19,6 +19,7 @@ namespace SF.Web.ModelAutoMapper
             CreateMap<SysMenuDto, SysMenu>();
             CreateMap<Order, OrderDto>().ForMember(opt => opt.Status, ptd => ptd.MapFrom(src => EnumExtension.GetDescription(typeof(OrderStatusEnum), src.Status)));
             CreateMap<OrderDto, Order>();//.ForMember(opt => opt.Status, ptd => ptd.MapFrom(src => src.Status))
+            CreateMap<ExcelTableDto, ExcelTable>();
         }
     }
 }

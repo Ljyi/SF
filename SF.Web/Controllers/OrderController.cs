@@ -112,6 +112,15 @@ namespace SF.Web.Controllers
             ViewBag.channelId = (int)ChannelEnum.FLM;
             return View();
         }
+
+        /// <summary>
+        /// ExcelTable
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ExcelTable()
+        {
+            return View();
+        }
         [HttpPost]
         public JsonResult ExportExcel(string ids, int channel, string orderNo, DateTime? dateFrom, DateTime? dateTo)
         {
@@ -229,6 +238,130 @@ namespace SF.Web.Controllers
                     return Json("导入失败 ！" + ex.Message, JsonRequestBehavior.AllowGet);
                 }
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        /// <param name="sort"></param>
+        /// <param name="sortOrder"></param>
+        /// <param name="orderNo"></param>
+        /// <param name="channelId"></param>
+        /// <param name="dateFrom"></param>
+        /// <param name="dateTo"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetExcelTableGrid(int limit, int offset, string sort, string sortOrder, string excelName, DateTime? dateFrom, DateTime? dateTo)
+        {
+            ExcelTableService excelTableService = new ExcelTableService();
+            TablePageParameter gp = new TablePageParameter() { Limit = limit, Offset = offset, SortName = sort, SortOrder = sortOrder };
+            List<ExcelTableDto> orderList = excelTableService.GetExcelTableGrid(gp, excelName: excelName, dateFrom: dateFrom, dateTo: dateTo);
+            return Json(new { total = gp.TotalCount, rows = orderList }, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        ///上传Excel表文件
+        /// </summary>
+        /// <returns>上传文件结果信息</returns>
+        [HttpPost]
+        public ActionResult UploadExcelTableFile()
+        {
+            ExcelTableService excelTableService = new ExcelTableService();
+            HttpPostedFileBase file = Request.Files["txt_file"];
+            if (file != null)
+            {
+                try
+                {
+                    string fileName = file.FileName;
+                    string fileException = Path.GetExtension(file.FileName);
+                    if (fileException != ".xls" && fileException != ".xlsx")
+                    {
+                        return Json("只能上传Excel文档", JsonRequestBehavior.AllowGet);
+                    }
+                    var path = Server.MapPath("/Import/") + DateTime.Now.ToString("yyyy-MM-dd");
+
+                    //获得保存路径
+                    string filePath = Path.Combine(HttpContext.Server.MapPath("../Import"), Path.GetFileName(file.FileName));
+                    file.SaveAs(filePath);
+
+                    //if (!Directory.Exists(path))
+                    //{
+                    //    Directory.CreateDirectory(path);
+                    //}
+                    //StreamWriter sw = new StreamWriter(path, false);
+                    //var oFile = Request.Files["txt_file"];
+                    //var oStream = oFile.InputStream;
+                    //sw.Write(oStream);
+
+
+                    //  file.SaveAs(path);
+                    excelTableService.Add(new ExcelTableDto()
+                    {
+                        ExcelName = file.FileName,
+                        ExcelPath = path,
+                        CreateUser = ServiceHelper.GetCurrentUser().Name
+                    });
+                    return Json("导入成功", JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json("导入失败 ！" + ex.Message, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json("导入失败 ！文件不存在", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        /// <summary>
+        /// Excel表下载
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult ExportExcelTable(int id)
+        {
+            ExcelTableService excelTableService = new ExcelTableService();
+            ResultJsonInfo resultJsonInfo = new ResultJsonInfo() { Data = "", ErrorMsg = "", Success = true };
+            string path = excelTableService.GetLoadUrl(id);
+            if (!string.IsNullOrEmpty(path))
+            {
+                resultJsonInfo.Data = path;
+            }
+            else
+            {
+                resultJsonInfo.Success = false;
+                resultJsonInfo.ErrorMsg = "暂未数据";
+            }
+            return Json(resultJsonInfo);
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult DeleteExcelTable(string ids)
+        {
+            ExcelTableService excelTableService = new ExcelTableService();
+            ResultJsonInfo resultJsonInfo = new ResultJsonInfo() { Data = "", ErrorMsg = "", Success = true };
+            try
+            {
+                if (!excelTableService.Deletes(ids))
+                {
+                    resultJsonInfo.Success = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                resultJsonInfo.Success = false;
+                resultJsonInfo.ErrorMsg = ex.Message;
+            }
+            return Json(resultJsonInfo, JsonRequestBehavior.AllowGet);
         }
     }
 }

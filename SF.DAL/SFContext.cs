@@ -33,6 +33,7 @@ namespace SF.DAL
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<UserRights> UserRights { get; set; }
         public DbSet<Order> Order { get; set; }
+        public DbSet<ExcelTable> ExcelTable { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>();
@@ -41,6 +42,7 @@ namespace SF.DAL
             modelBuilder.Entity<UserRole>();
             modelBuilder.Entity<UserRights>();
             modelBuilder.Entity<Order>();
+            modelBuilder.Entity<ExcelTable>();
         }
     }
 }

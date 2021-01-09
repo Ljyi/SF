@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="ExcelTableService.cs" />
     <Compile Include="OrderService.cs" />
     <Compile Include="SystemService.cs" />
     <Compile Include="UserRightsService.cs" />

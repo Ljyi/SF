@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201912031344093_modifOrderStatu.Designer.cs">
       <DependentUpon>201912031344093_modifOrderStatu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101041313558_AddExcelTable.cs" />
+    <Compile Include="Migrations\202101041313558_AddExcelTable.Designer.cs">
+      <DependentUpon>202101041313558_AddExcelTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SFContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912031344093_modifOrderStatu.resx">
       <DependentUpon>201912031344093_modifOrderStatu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101041313558_AddExcelTable.resx">
+      <DependentUpon>202101041313558_AddExcelTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
